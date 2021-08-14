@@ -1,0 +1,28 @@
+# obtained https://www.cakedc.com/jorge_gonzalez/2021/06/07/a-cakephp-docker-development-environment
+version: '3'
+services:
+  web:
+    image: webdevops/php-apache:8.0
+    container_name: cakefest-web
+    working_dir: /var/www/html
+    volumes:
+      - ./app/:/var/www/html:cached
+    environment:
+      - WEB_DOCUMENT_ROOT=/var/www/html/webroot
+      - DATABASE_URL=mysql://my_app:secret@cakefest-db/my_app
+    ports:
+      - "8099:80"
+  db:
+    image: mysql:8
+    restart: always
+    container_name: cakefest-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: my_app
+      MYSQL_USER: my_app
+      MYSQL_PASSWORD: secret
+    volumes:
+      - ./.Docker/mysql/sqls:/docker-entrypoint-initdb.d
+      - ./.Docker/mysql/data:/var/lib/mysql
+    ports:
+      - '9306:3306'
