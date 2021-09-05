@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Controller\Component\ArticleApiComponent;
-use Cake\Http\Response;
+use Exception;
 
 /**
  * Articles Controller
@@ -15,7 +15,7 @@ class ArticlesController extends AppController
 {
     /**
      * {@inheritdoc}
-     * @throws \Exception
+     * @throws Exception
      */
     public function initialize(): void
     {
@@ -31,7 +31,6 @@ class ArticlesController extends AppController
     public function index(): void
     {
         $articles = $this->ArticleApi->getArticles();
-        var_dump($articles);
-        exit;
+        $this->set('articles', $articles);
     }
 }
