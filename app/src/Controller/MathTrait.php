@@ -20,4 +20,3 @@ trait MathTrait
         return $amount1 + $amount2;
     }
 }
-

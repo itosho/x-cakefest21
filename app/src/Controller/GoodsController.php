@@ -10,6 +10,7 @@ use Exception;
  * Goods Controller
  *
  * @property MathComponent $Math
+ * @uses MathComponent::beforeFilter()
  */
 class GoodsController extends AppController
 {
