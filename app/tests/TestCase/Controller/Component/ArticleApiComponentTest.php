@@ -53,11 +53,11 @@ class ArticleApiComponentTest extends TestCase
         $reflection = new ReflectionClass($this->articleApiComponent);
         $property = $reflection->getProperty('qiitaApiClient');
         $property->setAccessible(true);
-        $mock = $this->createPartialMock(QiitaApiClient::class, ['items']);
+        $mock = $this->createPartialMock(QiitaApiClient::class, ['item']);
         $mock->expects($this->once())
-            ->method('items')
+            ->method('item')
             ->with($id)
-            ->willReturn($title);
+            ->willReturn(['title' => $title]);
 
         $property->setValue($this->articleApiComponent, $mock);
         $actual = $this->articleApiComponent->getTitleById($id);
