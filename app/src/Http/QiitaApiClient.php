@@ -6,7 +6,7 @@ namespace App\Http;
 use Cake\Http\Client;
 use Cake\Http\Exception\InternalErrorException;
 
-class QiitaApiClient
+class QiitaApiClient implements ArticleApiInterface
 {
     /** @var Client */
     private Client $client;
@@ -23,16 +23,17 @@ class QiitaApiClient
      * Get item by id
      *
      * @param string $id
-     * @return array Qiita API response
+     * @return string article title
      */
-    public function item(string $id): array
+    public function getTitleById(string $id): string
     {
         $response = $this->client->get("/api/v2/items/${id}");
-
         if (!$response->isOk()) {
             throw new InternalErrorException();
         }
 
-        return json_decode((string)$response->getBody(), true);
+        $article = json_decode((string)$response->getBody(), true);
+
+        return $article['title'] ?? 'Unknown Title';
     }
 }

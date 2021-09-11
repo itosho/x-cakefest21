@@ -4,12 +4,15 @@ declare(strict_types=1);
 namespace App\Test\TestCase\Controller;
 
 use App\Controller\Component\ArticleApiComponent;
+use App\Http\ArticleApiInterface;
 use Cake\Event\EventManager;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
  * App\Controller\ArticlesController Test Case
+ *
+ * @uses \App\Controller\ArticlesController
  */
 class ArticlesControllerTest extends TestCase
 {
@@ -39,5 +42,27 @@ class ArticlesControllerTest extends TestCase
 
         $actual = $this->viewVariable('title');
         $this->assertSame($expected, $actual, 'View variable is wrong.');
+    }
+
+    /**
+     * di() test case
+     *
+     * @return void
+     */
+    public function testDi(): void
+    {
+        $this->mockService(ArticleApiInterface::class, function () {
+            return new class implements ArticleApiInterface {
+                public function getTitleById(string $id): string
+                {
+                    return 'CakePHP Tutorial';
+                }
+            };
+        });
+
+        $this->get('/articles/di');
+
+        $actual = $this->viewVariable('title');
+        $this->assertSame('CakePHP Tutorial', $actual, 'View variable is wrong.');
     }
 }
