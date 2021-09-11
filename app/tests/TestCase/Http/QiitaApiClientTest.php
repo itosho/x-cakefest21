@@ -6,7 +6,6 @@ namespace App\Test\TestCase\Http;
 use App\Http\QiitaApiClient;
 use Cake\Http\Client;
 use Cake\Http\Client\Response;
-use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 use ReflectionException;
 use ReflectionProperty;
@@ -18,8 +17,6 @@ use ReflectionProperty;
  */
 class QiitaApiClientTest extends TestCase
 {
-    use IntegrationTestTrait;
-
     /** @var QiitaApiClient */
     private QiitaApiClient $client;
 
