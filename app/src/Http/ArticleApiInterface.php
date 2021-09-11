@@ -5,5 +5,5 @@ namespace App\Http;
 
 interface ArticleApiInterface
 {
-    public function item(string $id): array;
+    public function getTitleById(string $id): string;
 }

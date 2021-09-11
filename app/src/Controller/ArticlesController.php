@@ -46,8 +46,7 @@ class ArticlesController extends AppController
     public function di(ArticleApiInterface $articleApi): void
     {
         $id = '9565c6ad2ffc24c09364';
-        $article = $articleApi->item($id);
-        $title = $article['title'] ?? 'Unknown Title';
+        $title = $articleApi->getTitleById($id);
 
         $this->set('title', $title);
     }

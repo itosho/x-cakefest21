@@ -33,8 +33,6 @@ class ArticleApiComponent extends Component
      */
     public function getTitleById(string $id): string
     {
-        $article = $this->qiitaApiClient->item($id);
-
-        return $article['title'] ?? 'Unknown Title';
+        return $this->qiitaApiClient->getTitleById($id);
     }
 }

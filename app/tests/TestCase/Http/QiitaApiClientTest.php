@@ -36,7 +36,8 @@ class QiitaApiClientTest extends TestCase
     public function testItem(): void
     {
         $id = '9565c6ad2ffc24c09364';
-        $response = ['title' => 'CakePHP Tutorial'];
+        $title = 'CakePHP Tutorial';
+        $response = ['title' => $title];
 
         $clientMock = $this->createPartialMock(Client::class, ['get']);
         $clientMock
@@ -49,6 +50,6 @@ class QiitaApiClientTest extends TestCase
         $clientProp->setAccessible(true);
         $clientProp->setValue($this->client, $clientMock);
 
-        $this->assertSame($response, $this->client->item($id), 'Response is wrong.');
+        $this->assertSame($title, $this->client->getTitleById($id), 'Response is wrong.');
     }
 }
