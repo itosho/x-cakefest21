@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Controller\Component\ArticleApiComponent;
+use App\Http\ArticleApiInterface;
 use Exception;
 
 /**
@@ -32,6 +33,21 @@ class ArticlesController extends AppController
     {
         $id = '9565c6ad2ffc24c09364';
         $title = $this->ArticleApi->getTitleById($id);
+
+        $this->set('title', $title);
+    }
+
+    /**
+     * Sample action by DI container
+     *
+     * @param ArticleApiInterface $articleApi
+     * @return void
+     */
+    public function di(ArticleApiInterface $articleApi): void
+    {
+        $id = '9565c6ad2ffc24c09364';
+        $article = $articleApi->item($id);
+        $title = $article['title'] ?? 'Unknown Title';
 
         $this->set('title', $title);
     }

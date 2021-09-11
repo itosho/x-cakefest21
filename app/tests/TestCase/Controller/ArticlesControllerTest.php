@@ -10,6 +10,8 @@ use Cake\TestSuite\TestCase;
 
 /**
  * App\Controller\ArticlesController Test Case
+ *
+ * @uses \App\Controller\ArticlesController
  */
 class ArticlesControllerTest extends TestCase
 {

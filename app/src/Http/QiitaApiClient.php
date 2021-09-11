@@ -6,7 +6,7 @@ namespace App\Http;
 use Cake\Http\Client;
 use Cake\Http\Exception\InternalErrorException;
 
-class QiitaApiClient
+class QiitaApiClient implements ArticleApiInterface
 {
     /** @var Client */
     private Client $client;
