@@ -3,80 +3,41 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\ArticlesController;
+use App\Controller\Component\ArticleApiComponent;
+use Cake\Event\EventManager;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
  * App\Controller\ArticlesController Test Case
- *
- * @uses \App\Controller\ArticlesController
  */
 class ArticlesControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
     /**
-     * Fixtures
-     *
-     * @var array
-     */
-    protected $fixtures = [
-        'app.Articles',
-    ];
-
-    /**
-     * Test index method
+     * component() test case
      *
      * @return void
-     * @uses \App\Controller\ArticlesController::index()
      */
-    public function testIndex(): void
+    public function testComponent(): void
     {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
+        $id = '9565c6ad2ffc24c09364';
+        $expected = 'CakePHP Tutorial';
 
-    /**
-     * Test view method
-     *
-     * @return void
-     * @uses \App\Controller\ArticlesController::view()
-     */
-    public function testView(): void
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
+        $componentInjection = function ($event) use ($id, $expected) {
+            $subject = $this->createPartialMock(ArticleApiComponent::class, ['getTitleById']);
+            $subject->expects($this->once())
+                ->method('getTitleById')
+                ->with($id)
+                ->willReturn($expected);
+            $event->getSubject()->ArticleApi = $subject;
+        };
+        EventManager::instance()->on('Controller.initialize', $componentInjection);
 
-    /**
-     * Test add method
-     *
-     * @return void
-     * @uses \App\Controller\ArticlesController::add()
-     */
-    public function testAdd(): void
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
+        $this->get('/articles/component');
 
-    /**
-     * Test edit method
-     *
-     * @return void
-     * @uses \App\Controller\ArticlesController::edit()
-     */
-    public function testEdit(): void
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test delete method
-     *
-     * @return void
-     * @uses \App\Controller\ArticlesController::delete()
-     */
-    public function testDelete(): void
-    {
-        $this->markTestIncomplete('Not implemented yet.');
+        $actual = $this->viewVariable('title');
+        $this->assertSame($expected, $actual, 'View variable is wrong.');
     }
 }

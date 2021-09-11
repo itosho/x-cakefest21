@@ -12,8 +12,6 @@ use ReflectionProperty;
 
 /**
  * App\Http\QiitaApiClientTest Test Case
- *
- * @uses \App\Http\QiitaApiClient
  */
 class QiitaApiClientTest extends TestCase
 {

@@ -45,7 +45,7 @@ class ArticleApiComponentTest extends TestCase
      *
      * @return void
      */
-    public function testGetTitleById()
+    public function testGetTitleById(): void
     {
         $id = '9565c6ad2ffc24c09364';
         $title = 'CakePHP Tutorial';
