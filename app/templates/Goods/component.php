@@ -1,6 +1,6 @@
 <?php
 /**
- * @var inr $amount
+ * @var int $amount
  */
 ?>
 <div>
