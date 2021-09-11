@@ -12,9 +12,9 @@ use Cake\Controller\Component;
 class ArticleApiComponent extends Component
 {
     /**
-     * @var QiitaApiClient|null
+     * @var QiitaApiClient
      */
-    private ?QiitaApiClient $qiitaApiClient = null;
+    private QiitaApiClient $qiitaApiClient;
 
     /**
      * {@inheritDoc}
