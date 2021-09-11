@@ -26,12 +26,15 @@ class ArticleApiComponent extends Component
     }
 
     /**
-     * Get Articles
+     * Get article title by id
      *
-     * @return array
+     * @param  string id
+     * @return string article title
      */
-    public function getArticles(): array
+    public function getTitleById(string $id): string
     {
-        return $this->qiitaApiClient->items();
+        $article = $this->qiitaApiClient->item($id);
+
+        return $article['title'] ?? 'Unknown Title';
     }
 }

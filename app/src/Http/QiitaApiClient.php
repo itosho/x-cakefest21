@@ -12,24 +12,22 @@ class QiitaApiClient
     private Client $client;
 
     /**
-     * constructor
+     * constructor method
      */
     public function __construct()
     {
-        $this->client = new Client([
-            'host' => 'qiita.com',
-            'scheme' => 'https',
-        ]);
+        $this->client = new Client(['host' => 'qiita.com', 'scheme' => 'https']);
     }
 
     /**
-     * Get items
+     * Get item by id
      *
-     * @return array response
+     * @param string $id
+     * @return array Qiita API response
      */
-    public function items(): array
+    public function item(string $id): array
     {
-        $response = $this->client->get('/api/v2/items');
+        $response = $this->client->get("/api/v2/items/${id}");
 
         if (!$response->isOk()) {
             throw new InternalErrorException();

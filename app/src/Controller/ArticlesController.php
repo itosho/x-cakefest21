@@ -24,13 +24,15 @@ class ArticlesController extends AppController
     }
 
     /**
-     * Index method
+     * Sample action by component
      *
      * @return void
      */
-    public function index(): void
+    public function component(): void
     {
-        $articles = $this->ArticleApi->getArticles();
-        $this->set('articles', $articles);
+        $id = '9565c6ad2ffc24c09364';
+        $title = $this->ArticleApi->getTitleById($id);
+
+        $this->set('title', $title);
     }
 }
