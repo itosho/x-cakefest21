@@ -11,7 +11,7 @@ use ReflectionException;
 use ReflectionProperty;
 
 /**
- * App\Http\QiitaApiClientTest Test Case
+ * App\Http\QiitaApiClient Test Case
  */
 class QiitaApiClientTest extends TestCase
 {
@@ -39,17 +39,18 @@ class QiitaApiClientTest extends TestCase
         $title = 'CakePHP Tutorial';
         $response = ['title' => $title];
 
-        $clientMock = $this->createPartialMock(Client::class, ['get']);
-        $clientMock
-            ->expects($this->once())
+        $mock = $this->createPartialMock(Client::class, ['get']);
+        $mock->expects($this->once())
             ->method('get')
             ->with("/api/v2/items/${id}")
             ->willReturn((new Response([], json_encode($response)))->withStatus(200));
 
-        $clientProp = new ReflectionProperty($this->client, 'client');
-        $clientProp->setAccessible(true);
-        $clientProp->setValue($this->client, $clientMock);
+        $property = new ReflectionProperty($this->client, 'client');
+        $property->setAccessible(true);
+        $property->setValue($this->client, $mock);
 
-        $this->assertSame($title, $this->client->getTitleById($id), 'Response is wrong.');
+        $actual = $this->client->getTitleById($id);
+
+        $this->assertSame($title, $actual, 'Response is wrong.');
     }
 }

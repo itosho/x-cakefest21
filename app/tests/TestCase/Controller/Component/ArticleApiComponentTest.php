@@ -50,16 +50,17 @@ class ArticleApiComponentTest extends TestCase
         $id = '9565c6ad2ffc24c09364';
         $title = 'CakePHP Tutorial';
 
-        $reflection = new ReflectionClass($this->articleApiComponent);
-        $property = $reflection->getProperty('qiitaApiClient');
-        $property->setAccessible(true);
         $mock = $this->createPartialMock(QiitaApiClient::class, ['getTitleById']);
         $mock->expects($this->once())
             ->method('getTitleById')
             ->with($id)
             ->willReturn($title);
 
+        $reflection = new ReflectionClass($this->articleApiComponent);
+        $property = $reflection->getProperty('qiitaApiClient');
+        $property->setAccessible(true);
         $property->setValue($this->articleApiComponent, $mock);
+
         $actual = $this->articleApiComponent->getTitleById($id);
 
         $this->assertSame($title, $actual, 'Title is wrong');

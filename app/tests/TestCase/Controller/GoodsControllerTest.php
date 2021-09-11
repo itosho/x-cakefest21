@@ -7,7 +7,7 @@ use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\ArticlesController Test Case
+ * App\Controller\GoodsController Test Case
  *
  * @uses \App\Controller\GoodsController
  */
@@ -24,6 +24,7 @@ class GoodsControllerTest extends TestCase
     {
         $amount1 = 100;
         $amount2 = 200;
+
         $this->get("/goods/component?amount1=${amount1}&amount2=${amount2}");
 
         $actual = $this->viewVariable('amount');
@@ -39,6 +40,7 @@ class GoodsControllerTest extends TestCase
     {
         $amount1 = 100;
         $amount2 = 200;
+
         $this->get("/goods/component?amount1=${amount1}&amount2=${amount2}");
 
         $actual = $this->viewVariable('amount');
