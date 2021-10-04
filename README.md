@@ -1,7 +1,7 @@
 # x-cakefest21
-[![CI](https://github.com/itosho/x-cakefest21/actions/workflows/ci.yml/badge.svg)](https://github.com/itosho/x-cakefest21/actions/workflows/ci.yml)
+This repository is the sample code for my presentation "Components Reconsidered" at [CakeFest2021](https://cakefest.org/).
 
-- This repository is the sample code for my presentation "Components Reconsidered" at [CakeFest2021](https://cakefest.org/).
+[![CI](https://github.com/itosho/x-cakefest21/actions/workflows/ci.yml/badge.svg)](https://github.com/itosho/x-cakefest21/actions/workflows/ci.yml)
 
 ## My Presentation
 - T.B.D
