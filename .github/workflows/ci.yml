@@ -17,7 +17,9 @@ jobs:
           coverage: none
 
       - name: Setup MySQL
-        run: mysql -u root -proot -e 'CREATE DATABASE test;'
+        run: |
+          sudo /etc/init.d/mysql start
+          mysql -u root -proot -e 'CREATE DATABASE test;'
 
       - name: Composer Install
         working-directory: ./app
