@@ -1,5 +1,5 @@
 # x-cakefest21
-This repository is the sample code for my presentation "Components Reconsidered" at [CakeFest2021](https://cakefest.org/).
+Sample codes for my presentation "Components Reconsidered" at [CakeFest2021](https://cakefest.org/).
 
 [![CI](https://github.com/itosho/x-cakefest21/actions/workflows/ci.yml/badge.svg)](https://github.com/itosho/x-cakefest21/actions/workflows/ci.yml)
 
@@ -16,7 +16,7 @@ $ docker-compose up -d
 
 Access to http://localhost:8099
 
-## Samples codes
+## Sample codes
 - [Articles Controller](https://github.com/itosho/x-cakefest21/blob/main/app/src/Controller/ArticlesController.php)
 - [Goods Controller](https://github.com/itosho/x-cakefest21/blob/main/app/src/Controller/GoodsController.php)
 - [Math Component](https://github.com/itosho/x-cakefest21/blob/main/app/src/Controller/Component/MathComponent.php)
