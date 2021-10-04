@@ -1,0 +1,30 @@
+name: CI
+
+on: pull_request
+
+jobs:
+  testsuite:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v1
+        with:
+          php-version: 8.0
+          extensions: intl
+          coverage: none
+
+      - name: Setup MySQL
+        run: mysql -u root -proot -e 'CREATE DATABASE test;'
+
+      - name: Composer Install
+        working-directory: ./app
+        run: composer install --prefer-dist
+
+      - name: Run PHPUnit
+        env:
+          DATABASE_TEST_URL: mysql://root:root@localhost/test
+        working-directory: ./app
+        run: vendor/bin/phpunit
