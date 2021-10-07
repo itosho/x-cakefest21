@@ -1,5 +1,5 @@
 # x-cakefest21
-Code example for my presentation "Components Reconsidered" at [CakeFest2021](https://cakefest.org/).
+Code examples for my presentation "Components Reconsidered" at [CakeFest2021](https://cakefest.org/).
 
 [![CI](https://github.com/itosho/x-cakefest21/actions/workflows/ci.yml/badge.svg)](https://github.com/itosho/x-cakefest21/actions/workflows/ci.yml)
 
