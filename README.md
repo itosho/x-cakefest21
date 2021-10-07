@@ -1,5 +1,5 @@
 # x-cakefest21
-Sample codes for my presentation "Components Reconsidered" at [CakeFest2021](https://cakefest.org/).
+Code example for my presentation "Components Reconsidered" at [CakeFest2021](https://cakefest.org/).
 
 [![CI](https://github.com/itosho/x-cakefest21/actions/workflows/ci.yml/badge.svg)](https://github.com/itosho/x-cakefest21/actions/workflows/ci.yml)
 
@@ -16,7 +16,7 @@ $ docker-compose up -d
 
 Access to http://localhost:8099
 
-## Sample codes
+## Code examples
 - [Articles Controller](https://github.com/itosho/x-cakefest21/blob/main/app/src/Controller/ArticlesController.php)
 - [Goods Controller](https://github.com/itosho/x-cakefest21/blob/main/app/src/Controller/GoodsController.php)
 - [Math Component](https://github.com/itosho/x-cakefest21/blob/main/app/src/Controller/Component/MathComponent.php)
@@ -26,7 +26,7 @@ Access to http://localhost:8099
 - [Article Api Interface](https://github.com/itosho/x-cakefest21/blob/main/app/src/Http/ArticleApiInterface.php)
 - [Application Class](https://github.com/itosho/x-cakefest21/blob/main/app/src/Application.php)
 
-### Test Codes
+### Testing
 - [Article Controller](https://github.com/itosho/x-cakefest21/blob/main/app/tests/TestCase/Controller/ArticlesControllerTest.php)
 - [Goods Controller](https://github.com/itosho/x-cakefest21/blob/main/app/tests/TestCase/Controller/GoodsControllerTest.php)
 - [Math Component](https://github.com/itosho/x-cakefest21/blob/main/app/tests/TestCase/Controller/Component/MathComponentTest.php)
