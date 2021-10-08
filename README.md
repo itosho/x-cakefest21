@@ -4,7 +4,7 @@ Code examples for my presentation "Components Reconsidered" at [CakeFest2021](ht
 [![CI](https://github.com/itosho/x-cakefest21/actions/workflows/ci.yml/badge.svg)](https://github.com/itosho/x-cakefest21/actions/workflows/ci.yml)
 
 ## My Presentation
-- T.B.D
+- https://speakerdeck.com/itosho/components-reconsidered
 
 ## Setup
 
